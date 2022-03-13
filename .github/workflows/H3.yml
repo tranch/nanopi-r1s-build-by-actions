@@ -42,7 +42,6 @@ jobs:
         run: |
           git clone https://github.com/friendlyarm/repo
           sudo cp repo/repo /usr/bin/
-          echo -e "[url \"git@github.com:\"]\n insteadOf = https://github.com/\n" >> ~/.gitconfig
           
       - name: Download Source
         run: |
@@ -56,11 +55,8 @@ jobs:
           cd .repo/manifests
           git config user.name 'John Doe'
           git config user.email 'john.doe@example.com'
-          rm -f ./h3.xml
-          wget https://raw.githubusercontent.com/skytotwo/NanoPi-R1S-Build-By-Actions/master/source_xml/h3_19.07.xml
-          cp h3_19.07.xml h3.xml
-          rm -rf ./h3_19.07.xml
-          repo sync -c  --no-clone-bundle
+          wget -O h3.xml https://raw.githubusercontent.com/tranch/nanopi-r1s-build-by-actions/master/source_xml/h3_19.07.xml
+          repo sync -c --no-clone-bundle
       
       - name: Merge LEDE
         run: |
