@@ -42,8 +42,6 @@ jobs:
         run: |
           git clone https://github.com/friendlyarm/repo
           sudo cp repo/repo /usr/bin/
-          git config --global user.name 'John Doe'
-          git config --global user.email 'john.doe@example.com'
           
       - name: Download Source
         run: |
@@ -55,6 +53,8 @@ jobs:
         run: |
           cd friendlywrt-h3
           cd .repo/manifests
+          git config user.name 'John Doe'
+          git config user.email 'john.doe@example.com'
           rm -f ./h3.xml
           wget https://raw.githubusercontent.com/skytotwo/NanoPi-R1S-Build-By-Actions/master/source_xml/h3_19.07.xml
           cp h3_19.07.xml h3.xml
