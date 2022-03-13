@@ -42,6 +42,7 @@ jobs:
         run: |
           git clone https://github.com/friendlyarm/repo
           sudo cp repo/repo /usr/bin/
+          echo -e "[url \"git@github.com:\"]\n insteadOf = https://github.com/\n" >> ~/.git/config
           
       - name: Download Source
         run: |
