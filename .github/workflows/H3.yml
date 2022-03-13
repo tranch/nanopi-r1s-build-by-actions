@@ -53,8 +53,6 @@ jobs:
         run: |
           cd friendlywrt-h3
           cd .repo/manifests
-          git config user.name 'John Doe'
-          git config user.email 'john.doe@example.com'
           wget -O h3.xml https://raw.githubusercontent.com/tranch/nanopi-r1s-build-by-actions/master/source_xml/h3_19.07.xml
           repo sync -c --no-clone-bundle
       
@@ -102,7 +100,7 @@ jobs:
       - name: Build OpenWrt
         run: |
           cd friendlywrt-h3
-          ./build.sh nanopi_r1s.mk
+          ./build.sh nanopi_r1s_h3.mk
       
       - name: Zip Files
         run: |
